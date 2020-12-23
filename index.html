@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/topbar.css" />
+    <!-- <link rel="stylesheet" href="assets/css/no-topbar.css"> -->
+    <script src="assets/js/webview.js"></script>
+    <script src="assets/js/topbar.js"></script>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline';"
+    />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Topbar -->
+    <div id="controls">
+      <button id="home" title="Go Home"> <i class="fas fa-home"></i> Dashboard </button>
+      <button id="backWard" title="Go Back" type="button"> <i class="fas fa-arrow-left"></i> Back </button>
+    </div>
+    <!-- End topbar -->
+
+    <div class="indicator">
+
+    </div>
+
+    <!-- Webview -->
+<!--
+     <webview
+    id="webview"
+    autosize="on"
+    src="https://nicol-web.herokuapp.com/"
+    data-home="https://nicol-web.herokuapp.com/"
+  ></webview> 
+-->
+
+
+  <!-- local setup because the internet is slow -->
+
+  <webview
+  id="webview"
+  autosize="on"
+  src="http://127.0.0.1:8000/"
+  data-home="http://127.0.0.1:8000/"
+></webview>
+
+
+  <script src="assets/js/backward.js">
+  </script>
+
+  </body>
+</html>

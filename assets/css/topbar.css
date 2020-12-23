@@ -1,0 +1,29 @@
+/* Topbar */
+
+#controls {
+  padding: 5px;
+  border-bottom: solid 1px #ccc;
+  background-color: #242424;
+  font-family: 'Poppins', sans-serif;
+  display: none;
+}
+
+
+#home, #backWard {
+  background: #3B4146;
+  color: #fff;
+  border-color: #f9f9f9;
+  border-width: 1px;
+  padding: 7px;
+  text-align:center;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  display: none;
+}
+
+#home:hover, #backWard:hover{
+  background: #fff;
+  color: #3B4146;
+  cursor: pointer;
+  border-color: #3B4146;
+}
