@@ -9,38 +9,38 @@ const fs = require("fs");
 const { Menu } = require("electron");
 
 const template = [
- // {
-    // label: "Edit",
-  //   submenu: [
-  //     { role: "undo" },
-  //     { role: "redo" },
-  //     { type: "separator" },
-  //     { role: "cut" },
-  //     { role: "copy" },
-  //     { role: "paste" },
-  //     { role: "pasteandmatchstyle" },
-  //     { role: "delete" },
-  //     { role: "selectall" },
-  //   ],
-  // },
-  //  {
-  //    label: "view",
-  //    submenu: [
-  //     // { role: "Website" },
-      // { role: "forcereload" },
-      // { role: "toggledevtools" },
-  //     // { type: "separator" },
-  //     // { role: "resetzoom" },
-  //     // { role: "zoomin" },
-  //     // { role: "zoomout" },
-  //     // { type: "separator" },
-  //     // { role: "togglefullscreen" },
-  //    ],
-  //  },
-  // {
-  //   role: "window",
-  //   submenu: [{ role: "minimize" }, { role: "close" }],
-  // },
+ {
+   label: "Edit",
+     submenu: [
+     { role: "undo" },
+      { role: "redo" },
+       { type: "separator" },
+     { role: "cut" },
+       { role: "copy" },
+       { role: "paste" },
+       { role: "pasteandmatchstyle" },
+       { role: "delete" },
+       { role: "selectall" },
+     ],
+   },
+    {
+      label: "view",
+      submenu: [
+        { role: "Website" },
+       { role: "forcereload" },
+       { role: "toggledevtools" },
+   { type: "separator" },
+   { role: "resetzoom" },
+   { role: "zoomin" },
+ { role: "zoomout" },
+   { type: "separator" },
+   { role: "togglefullscreen" },
+      ],
+    },
+   {
+     role: "window",
+     submenu: [{ role: "minimize" }, { role: "close" }],
+  },
 ];
 
 if (process.platform === "darwin") {
@@ -110,7 +110,12 @@ app.on("ready", () => {
       zoomFactor: 1.0,
       enableRemoteModule: true,
       plugins: true,
+      contextIsolation: true
     },
+  
+
+    
+  
   });
 
 mainWindow.loadURL("file://" + __dirname + "/index.html");
@@ -131,10 +136,16 @@ mainWindow.loadURL("file://" + __dirname + "/index.html");
   //mainWindow.openDevTools();
 
   const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+  Menu.setApplicationMenu(null);
 
 
+  const loadstart = () => {
+    indicator.innerText = 'loading...'
+  }
 
+  const loadstop = () => {
+    indicator.innerText = ''
+  }
 
 });
 
@@ -232,3 +243,5 @@ function handleSquirrelEvent() {
       return true;
   }
 };
+
+app.dock.hide();
